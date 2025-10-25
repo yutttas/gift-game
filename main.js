@@ -597,6 +597,59 @@ class Play extends Phaser.Scene{
     this.time.addEvent({ delay: 1500, loop: true, callback: maintainFlow });
     maintainFlow();
 
+    // ===== スマホ用タッチコントロール =====
+    this.touchLeft = false;
+    this.touchRight = false;
+    this.touchJump = false;
+
+    // 左側：左右移動ボタン
+    const leftButtonSize = 80;
+    const buttonY = GAME_H - 120;
+    const buttonAlpha = 0.3;
+
+    // 左ボタン
+    const leftBtn = this.add.circle(60, buttonY, leftButtonSize/2, 0xffffff, buttonAlpha)
+      .setScrollFactor(0)
+      .setDepth(1000)
+      .setInteractive();
+    this.add.text(60, buttonY, '←', {fontSize: '40px', color: '#000000'})
+      .setOrigin(0.5)
+      .setScrollFactor(0)
+      .setDepth(1001);
+
+    leftBtn.on('pointerdown', () => { this.touchLeft = true; });
+    leftBtn.on('pointerup', () => { this.touchLeft = false; });
+    leftBtn.on('pointerout', () => { this.touchLeft = false; });
+
+    // 右ボタン
+    const rightBtn = this.add.circle(180, buttonY, leftButtonSize/2, 0xffffff, buttonAlpha)
+      .setScrollFactor(0)
+      .setDepth(1000)
+      .setInteractive();
+    this.add.text(180, buttonY, '→', {fontSize: '40px', color: '#000000'})
+      .setOrigin(0.5)
+      .setScrollFactor(0)
+      .setDepth(1001);
+
+    rightBtn.on('pointerdown', () => { this.touchRight = true; });
+    rightBtn.on('pointerup', () => { this.touchRight = false; });
+    rightBtn.on('pointerout', () => { this.touchRight = false; });
+
+    // 右側：ジャンプボタン
+    const jumpButtonSize = 100;
+    const jumpBtn = this.add.circle(GAME_W - 80, buttonY, jumpButtonSize/2, 0xffffff, buttonAlpha)
+      .setScrollFactor(0)
+      .setDepth(1000)
+      .setInteractive();
+    this.add.text(GAME_W - 80, buttonY, 'JUMP', {fontSize: '20px', color: '#000000', fontStyle: 'bold'})
+      .setOrigin(0.5)
+      .setScrollFactor(0)
+      .setDepth(1001);
+
+    jumpBtn.on('pointerdown', () => { this.touchJump = true; });
+    jumpBtn.on('pointerup', () => { this.touchJump = false; });
+    jumpBtn.on('pointerout', () => { this.touchJump = false; });
+
     // update
     this.events.on('update',()=>{
       const dt = Math.min((this.time.now-(this._lastTime||this.time.now))/1000,0.033);
@@ -621,17 +674,21 @@ class Play extends Phaser.Scene{
   }
 
   loop(dt){
-    // 入力
+    // 入力（キーボード + タッチ）
     let targetVx=0;
-    if(this.cursors.left.isDown)  targetVx=-this.speed;
-    if(this.cursors.right.isDown) targetVx= this.speed;
+    if(this.cursors.left.isDown || this.touchLeft)  targetVx=-this.speed;
+    if(this.cursors.right.isDown || this.touchRight) targetVx= this.speed;
     this.vx=targetVx;
     if(this.vx>0) this.facing=1; else if(this.vx<0) this.facing=-1;
 
     const justPressed=Phaser.Input.Keyboard.JustDown(this.cursors.up)
                       || Phaser.Input.Keyboard.JustDown(this.keySPACE)
-                      || Phaser.Input.Keyboard.JustDown(this.keyW);
-    if(justPressed) this.bufferTimer=this.jumpBuffer;
+                      || Phaser.Input.Keyboard.JustDown(this.keyW)
+                      || this.touchJump;
+    if(justPressed) {
+      this.bufferTimer=this.jumpBuffer;
+      this.touchJump = false; // タッチジャンプは1回だけ
+    }
 
     // 物理
     const pw=40, ph=100;
