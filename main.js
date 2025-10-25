@@ -907,10 +907,25 @@ class GameOver extends Phaser.Scene{
   init(d){ this.reason = d?.reason || '思い出にぶつかってGOALに辿り着けなかった！'; }
   create(){
     this.cameras.main.setBackgroundColor('#120b0b');
-    this.add.text(GAME_W/2,GAME_H/2-60,'GAME OVER',{fontSize:'52px',color:'#ffb4b4'}).setOrigin(0.5);
-    this.add.text(GAME_W/2,GAME_H/2,this.reason,{fontSize:'20px',color:'#ffe2e2',align:'center',wordWrap:{width:GAME_W-120}}).setOrigin(0.5);
-    this.add.text(GAME_W/2,GAME_H/2+80,'Enter でリトライ',{fontSize:'20px',color:'#ffe2e2'}).setOrigin(0.5);
-    this.input.keyboard.once('keydown-ENTER',()=>this.scene.start('boot'));
+    this.add.text(GAME_W/2,GAME_H/2-80,'GAME OVER',{fontSize:'52px',color:'#ffb4b4'}).setOrigin(0.5);
+    this.add.text(GAME_W/2,GAME_H/2-20,this.reason,{fontSize:'18px',color:'#ffe2e2',align:'center',wordWrap:{width:GAME_W-120}}).setOrigin(0.5);
+
+    // リスタートボタン（タッチ対応）
+    const buttonY = GAME_H/2 + 80;
+    const restartBtn = this.add.rectangle(GAME_W/2, buttonY, 200, 50, 0xff6b6b)
+      .setInteractive()
+      .setStrokeStyle(3, 0xffffff);
+    this.add.text(GAME_W/2, buttonY, 'リスタート', {fontSize: '24px', color: '#ffffff', fontStyle: 'bold'})
+      .setOrigin(0.5);
+
+    // ホバーエフェクト
+    restartBtn.on('pointerover', () => restartBtn.setFillStyle(0xff8888));
+    restartBtn.on('pointerout', () => restartBtn.setFillStyle(0xff6b6b));
+
+    // クリック/タップでリスタート
+    const restart = () => this.scene.start('boot');
+    restartBtn.on('pointerdown', restart);
+    this.input.keyboard.once('keydown-ENTER', restart);
   }
 }
 
@@ -926,19 +941,32 @@ new Phaser.Game({
   scene: [Boot, Play, Letter, GameOver],
   scale: {
     mode: Phaser.Scale.FIT,
+    parent: 'game',
+    width: GAME_W,
+    height: GAME_H,
     autoCenter: Phaser.Scale.CENTER_BOTH,
-    resolution: Math.min(window.devicePixelRatio || 1, 2), // iPhone用に最適化（最大2倍）
-    fullscreenTarget: 'game'
+    resolution: Math.min(window.devicePixelRatio || 1, 2)
   },
   render: {
     antialias: true,
     antialiasGL: true,
     mipmapFilter: 'LINEAR_MIPMAP_LINEAR',
     roundPixels: false,
-    powerPreference: 'high-performance'
+    powerPreference: 'high-performance',
+    transparent: false,
+    clearBeforeRender: true,
+    preserveDrawingBuffer: false
   },
   input: {
-    touch: true, // タッチ入力を有効化
-    activePointers: 3 // 同時タッチポイント数
+    touch: {
+      target: 'game',
+      capture: true
+    },
+    activePointers: 3,
+    smoothFactor: 0
+  },
+  disableContextMenu: true,
+  audio: {
+    noAudio: false
   }
 });
