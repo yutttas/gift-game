@@ -58,22 +58,22 @@
   ],
 
   "photos": [
-    { "x": 800, "img": "assets/photos/E7FD0545-D301-4DFD-9E05-C96EF8E6D22A.png", "caption": "きき茶" },
-    { "x": 1200, "img": "assets/photos/IMG_1027.png", "caption": "串揚げたやつ！" },
-    { "x": 1800, "img": "assets/photos/IMG_2511.png", "caption": "うなぎお祝いしてくれた" },
-    { "x": 2200, "img": "assets/photos/IMG_2719.png", "caption": "いちご爆食🔥" },
-    { "x": 2600, "img": "assets/photos/IMG_2981.png", "caption": "みーやびちゃん小山凱旋" },
-    { "x": 3400, "img": "assets/photos/IMG_3079.png", "caption": "申し訳なさそうにお菓子食べる方" },
-    { "x": 3800, "img": "assets/photos/IMG_3333.png", "caption": "恐竜に大興奮みやびちゃん" },
-    { "x": 4200, "img": "assets/photos/IMG_3596.png", "caption": "昭和にタイムスリップ" },
-    { "x": 4600, "img": "assets/photos/IMG_3623.png", "caption": "カフェ開拓" },
-    { "x": 5200, "img": "assets/photos/IMG_3841.png", "caption": "足立花火雨で悲しがるみやびちゃん" },
-    { "x": 5600, "img": "assets/photos/IMG_3870.png", "caption": "謎の才能あるみやびちゃん" },
-    { "x": 6000, "img": "assets/photos/IMG_4513.png", "caption": "夢の国の魔法が解けたみやびちゃん" },
-    { "x": 6400, "img": "assets/photos/IMG_5028.png", "caption": "ネモフィラソフト売り切れ" },
-    { "x": 7000, "img": "assets/photos/IMG_7009.png", "caption": "寿司打2位の方" },
-    { "x": 7400, "img": "assets/photos/IMG_7578 2.png", "caption": "鬼痩せた俺" },
-    { "x": 7600, "img": "assets/photos/IMG_9739.png", "caption": "トイレに荷物置いてきた方" }
+    { "x": 800, "img": "assets/photos/E7FD0545-D301-4DFD-9E05-C96EF8E6D22A.jpg", "caption": "きき茶" },
+    { "x": 1200, "img": "assets/photos/IMG_1027.jpg", "caption": "串揚げたやつ！" },
+    { "x": 1800, "img": "assets/photos/IMG_2511.jpg", "caption": "うなぎお祝いしてくれた" },
+    { "x": 2200, "img": "assets/photos/IMG_2719.jpg", "caption": "いちご爆食🔥" },
+    { "x": 2600, "img": "assets/photos/IMG_2981.jpg", "caption": "みーやびちゃん小山凱旋" },
+    { "x": 3400, "img": "assets/photos/IMG_3079.jpg", "caption": "申し訳なさそうにお菓子食べる方" },
+    { "x": 3800, "img": "assets/photos/IMG_3333.jpg", "caption": "恐竜に大興奮みやびちゃん" },
+    { "x": 4200, "img": "assets/photos/IMG_3596.jpg", "caption": "昭和にタイムスリップ" },
+    { "x": 4600, "img": "assets/photos/IMG_3623.jpg", "caption": "カフェ開拓" },
+    { "x": 5200, "img": "assets/photos/IMG_3841.jpg", "caption": "足立花火雨で悲しがるみやびちゃん" },
+    { "x": 5600, "img": "assets/photos/IMG_3870.jpg", "caption": "謎の才能あるみやびちゃん" },
+    { "x": 6000, "img": "assets/photos/IMG_4513.jpg", "caption": "夢の国の魔法が解けたみやびちゃん" },
+    { "x": 6400, "img": "assets/photos/IMG_5028.jpg", "caption": "ネモフィラソフト売り切れ" },
+    { "x": 7000, "img": "assets/photos/IMG_7009.jpg", "caption": "寿司打2位の方" },
+    { "x": 7400, "img": "assets/photos/IMG_7578 2.jpg", "caption": "鬼痩せた俺" },
+    { "x": 7600, "img": "assets/photos/IMG_9739.jpg", "caption": "トイレに荷物置いてきた方" }
   ],
 
   "backgroundSegments": [
