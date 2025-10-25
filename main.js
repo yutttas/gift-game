@@ -597,72 +597,33 @@ class Play extends Phaser.Scene{
     this.time.addEvent({ delay: 1500, loop: true, callback: maintainFlow });
     maintainFlow();
 
-    // ===== iPhone用タッチコントロール =====
+    // ===== HTML/CSSタッチコントロールとの連携 =====
     this.touchLeft = false;
     this.touchRight = false;
     this.touchJump = false;
 
-    // iPhone最適化：ボタンサイズと配置
-    const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
-    const buttonSize = isMobile ? 70 : 80; // iPhone用に少し大きく
-    const buttonY = GAME_H - 90; // 下部により近く配置
-    const buttonAlpha = 0.25; // より薄く（見やすさ向上）
-    const buttonStroke = 2;
+    // HTML要素のタッチコントロールボタンを取得
+    const btnLeft = document.getElementById('btn-left');
+    const btnRight = document.getElementById('btn-right');
+    const btnJump = document.getElementById('btn-jump');
 
-    // 左ボタン（より左端に配置）
-    const leftBtn = this.add.circle(50, buttonY, buttonSize/2, 0xffffff, buttonAlpha)
-      .setScrollFactor(0)
-      .setDepth(1000)
-      .setInteractive();
-    this.add.circle(50, buttonY, buttonSize/2, 0xffffff, 0)
-      .setStrokeStyle(buttonStroke, 0xffffff, 0.4)
-      .setScrollFactor(0)
-      .setDepth(1000);
-    this.add.text(50, buttonY, '←', {fontSize: '36px', color: '#ffffff', fontStyle: 'bold'})
-      .setOrigin(0.5)
-      .setScrollFactor(0)
-      .setDepth(1001);
+    if (btnLeft) {
+      btnLeft.addEventListener('touchstart', (e) => { e.preventDefault(); this.touchLeft = true; });
+      btnLeft.addEventListener('touchend', (e) => { e.preventDefault(); this.touchLeft = false; });
+      btnLeft.addEventListener('touchcancel', (e) => { e.preventDefault(); this.touchLeft = false; });
+    }
 
-    leftBtn.on('pointerdown', () => { this.touchLeft = true; });
-    leftBtn.on('pointerup', () => { this.touchLeft = false; });
-    leftBtn.on('pointerout', () => { this.touchLeft = false; });
+    if (btnRight) {
+      btnRight.addEventListener('touchstart', (e) => { e.preventDefault(); this.touchRight = true; });
+      btnRight.addEventListener('touchend', (e) => { e.preventDefault(); this.touchRight = false; });
+      btnRight.addEventListener('touchcancel', (e) => { e.preventDefault(); this.touchRight = false; });
+    }
 
-    // 右ボタン
-    const rightBtn = this.add.circle(160, buttonY, buttonSize/2, 0xffffff, buttonAlpha)
-      .setScrollFactor(0)
-      .setDepth(1000)
-      .setInteractive();
-    this.add.circle(160, buttonY, buttonSize/2, 0xffffff, 0)
-      .setStrokeStyle(buttonStroke, 0xffffff, 0.4)
-      .setScrollFactor(0)
-      .setDepth(1000);
-    this.add.text(160, buttonY, '→', {fontSize: '36px', color: '#ffffff', fontStyle: 'bold'})
-      .setOrigin(0.5)
-      .setScrollFactor(0)
-      .setDepth(1001);
-
-    rightBtn.on('pointerdown', () => { this.touchRight = true; });
-    rightBtn.on('pointerup', () => { this.touchRight = false; });
-    rightBtn.on('pointerout', () => { this.touchRight = false; });
-
-    // 右側：ジャンプボタン（より大きく、右端に配置）
-    const jumpButtonSize = isMobile ? 85 : 100;
-    const jumpBtn = this.add.circle(GAME_W - 60, buttonY, jumpButtonSize/2, 0xffffff, buttonAlpha)
-      .setScrollFactor(0)
-      .setDepth(1000)
-      .setInteractive();
-    this.add.circle(GAME_W - 60, buttonY, jumpButtonSize/2, 0xffffff, 0)
-      .setStrokeStyle(buttonStroke, 0xffffff, 0.4)
-      .setScrollFactor(0)
-      .setDepth(1000);
-    this.add.text(GAME_W - 60, buttonY, 'JUMP', {fontSize: '18px', color: '#ffffff', fontStyle: 'bold'})
-      .setOrigin(0.5)
-      .setScrollFactor(0)
-      .setDepth(1001);
-
-    jumpBtn.on('pointerdown', () => { this.touchJump = true; });
-    jumpBtn.on('pointerup', () => { this.touchJump = false; });
-    jumpBtn.on('pointerout', () => { this.touchJump = false; });
+    if (btnJump) {
+      btnJump.addEventListener('touchstart', (e) => { e.preventDefault(); this.touchJump = true; });
+      btnJump.addEventListener('touchend', (e) => { e.preventDefault(); this.touchJump = false; });
+      btnJump.addEventListener('touchcancel', (e) => { e.preventDefault(); this.touchJump = false; });
+    }
 
     // update
     this.events.on('update',()=>{

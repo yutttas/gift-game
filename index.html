@@ -57,12 +57,64 @@
       max-height: 100vh;
       object-fit: contain;
     }
+
+    /* タッチコントロール */
+    .touch-control {
+      position: fixed;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.25);
+      border: 2px solid rgba(255, 255, 255, 0.4);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-weight: bold;
+      user-select: none;
+      -webkit-user-select: none;
+      touch-action: none;
+      z-index: 9999;
+      pointer-events: auto;
+    }
+    .touch-control:active {
+      background: rgba(255, 255, 255, 0.4);
+    }
+    .touch-control.left {
+      bottom: 20px;
+      left: 20px;
+      width: 70px;
+      height: 70px;
+      font-size: 36px;
+    }
+    .touch-control.right {
+      bottom: 20px;
+      left: 110px;
+      width: 70px;
+      height: 70px;
+      font-size: 36px;
+    }
+    .touch-control.jump {
+      bottom: 20px;
+      right: 20px;
+      width: 85px;
+      height: 85px;
+      font-size: 18px;
+    }
+    @media (min-width: 768px) {
+      .touch-control {
+        display: none;
+      }
+    }
   </style>
 </head>
 <body>
   <div id="game"></div>
 
-  <script src="https://cdn.jsdelivr.net/npm/phaser@3.80.0/dist/phaser.min.js" crossorigin="anonymous"></script>
+  <!-- HTML/CSSベースのタッチコントロール -->
+  <div class="touch-control left" id="btn-left">←</div>
+  <div class="touch-control right" id="btn-right">→</div>
+  <div class="touch-control jump" id="btn-jump">JUMP</div>
+
+  <script src="https://unpkg.com/phaser@3.80.0/dist/phaser.min.js"></script>
   <script src="main.js"></script>
 </body>
 </html>
