@@ -1,0 +1,138 @@
+{
+  "title": "Gift Runner - 4 Quarters",
+  "finalMessageTitle": "○○ちゃん",
+  "finalMessageBody": "ゴール！\\2周年記念！n",
+  "bgOpacity": 0.65,
+  "flowMaxConcurrent": 8,
+
+  "flow": [
+    "assets/flow/LINE_ALBUM_理想郷東口_251025_1.jpg",
+    "assets/flow/LINE_ALBUM_理想郷東口_251025_2.jpg",
+    "assets/flow/LINE_ALBUM_理想郷東口_251025_204.jpg",
+    "assets/flow/LINE_ALBUM_イエベ盛れ_251025_1.jpg",
+    "assets/flow/LINE_ALBUM_動線_251025_1.jpg",
+    "assets/flow/LINE_ALBUM_動線_251025_2.jpg",
+    "assets/flow/LINE_ALBUM_木星（ゆうたくんおめでとう）_251025_1.jpg",
+    "assets/flow/LINE_ALBUM_木星（ゆうたくんおめでとう）_251025_2.jpg",
+    "assets/flow/LINE_ALBUM_全力コーヒーカップニキ_251025_1.jpg",
+    "assets/flow/LINE_ALBUM_全力コーヒーカップニキ_251025_2.jpg",
+    "assets/flow/LINE_ALBUM_全力コーヒーカップニキ_251025_3.jpg",
+    "assets/flow/LINE_ALBUM_リロクラブ_251025_1.jpg",
+    "assets/flow/LINE_ALBUM_リロクラブ_251025_2.jpg",
+    "assets/flow/LINE_ALBUM_リロクラブ_251025_3.jpg",
+    "assets/flow/LINE_ALBUM_インバウンドサーロイン_251025_1.jpg",
+    "assets/flow/LINE_ALBUM_インバウンドサーロイン_251025_2.jpg",
+    "assets/flow/LINE_ALBUM_インバウンドサーロイン_251025_3.jpg",
+    "assets/flow/LINE_ALBUM_インバウンドサーロイン_251025_4.jpg",
+    "assets/flow/LINE_ALBUM_インバウンドサーロイン_251025_5.jpg",
+    "assets/flow/LINE_ALBUM_インバウンドサーロイン_251025_6.jpg",
+    "assets/flow/LINE_ALBUM_豪華焼きおにぎり_251025_1.jpg",
+    "assets/flow/LINE_ALBUM_豪華焼きおにぎり_251025_2.jpg",
+    "assets/flow/LINE_ALBUM_豪華焼きおにぎり_251025_3.jpg",
+    "assets/flow/LINE_ALBUM_豪華焼きおにぎり_251025_4.jpg",
+    "assets/flow/LINE_ALBUM_4曲200円_251025_1.jpg",
+    "assets/flow/LINE_ALBUM_オニオンスープが欲しいいちご狩り_251025_1.jpg",
+    "assets/flow/LINE_ALBUM_跳び箱_251025_1.jpg",
+    "assets/flow/LINE_ALBUM_跳び箱_251025_2.jpg",
+    "assets/flow/LINE_ALBUM_跳び箱_251025_3.jpg",
+    "assets/flow/LINE_ALBUM_跳び箱_251025_4.jpg",
+    "assets/flow/LINE_ALBUM_跳び箱_251025_5.jpg",
+    "assets/flow/LINE_ALBUM_乗車のみピーターパン_251025_1.jpg",
+    "assets/flow/LINE_ALBUM_乗車のみピーターパン_251025_2.jpg",
+    "assets/flow/LINE_ALBUM_乗車のみピーターパン_251025_3.jpg",
+    "assets/flow/LINE_ALBUM_乗車のみピーターパン_251025_4.jpg",
+    "assets/flow/LINE_ALBUM_乗車のみピーターパン_251025_5.jpg",
+    "assets/flow/LINE_ALBUM_乗車のみピーターパン_251025_6.jpg",
+    "assets/flow/LINE_ALBUM_乗車のみピーターパン_251025_7.jpg",
+    "assets/flow/LINE_ALBUM_片道切符月旅行_251025_1.jpg",
+    "assets/flow/LINE_ALBUM_片道切符月旅行_251025_2.jpg",
+    "assets/flow/LINE_ALBUM_片道切符月旅行_251025_3.jpg",
+    "assets/flow/LINE_ALBUM_20250726_251025_1.jpg",
+    "assets/flow/LINE_ALBUM_IKEAのレジには気をつけましょう_251025_1.jpg",
+    "assets/flow/LINE_ALBUM_IKEAのレジには気をつけましょう_251025_2.jpg",
+    "assets/flow/LINE_ALBUM_車線多すぎ港区_251025_1.jpg",
+    "assets/flow/LINE_ALBUM_車線多すぎ港区_251025_2.jpg",
+    "assets/flow/LINE_ALBUM_仕組みの分からない茶_251025_1.jpg",
+    "assets/flow/LINE_ALBUM_仕組みの分からない茶_251025_2.jpg",
+    "assets/flow/LINE_ALBUM_仕組みの分からない茶_251025_3.jpg"
+  ],
+
+  "photos": [
+    { "x": 800, "img": "assets/photos/E7FD0545-D301-4DFD-9E05-C96EF8E6D22A.png", "caption": "きき茶" },
+    { "x": 1200, "img": "assets/photos/IMG_1027.png", "caption": "串揚げたやつ！" },
+    { "x": 1800, "img": "assets/photos/IMG_2511.png", "caption": "うなぎお祝いしてくれた" },
+    { "x": 2200, "img": "assets/photos/IMG_2719.png", "caption": "いちご爆食🔥" },
+    { "x": 2600, "img": "assets/photos/IMG_2981.png", "caption": "みーやびちゃん小山凱旋" },
+    { "x": 3400, "img": "assets/photos/IMG_3079.png", "caption": "申し訳なさそうにお菓子食べる方" },
+    { "x": 3800, "img": "assets/photos/IMG_3333.png", "caption": "恐竜に大興奮みやびちゃん" },
+    { "x": 4200, "img": "assets/photos/IMG_3596.png", "caption": "昭和にタイムスリップ" },
+    { "x": 4600, "img": "assets/photos/IMG_3623.png", "caption": "カフェ開拓" },
+    { "x": 5200, "img": "assets/photos/IMG_3841.png", "caption": "足立花火雨で悲しがるみやびちゃん" },
+    { "x": 5600, "img": "assets/photos/IMG_3870.png", "caption": "謎の才能あるみやびちゃん" },
+    { "x": 6000, "img": "assets/photos/IMG_4513.png", "caption": "夢の国の魔法が解けたみやびちゃん" },
+    { "x": 6400, "img": "assets/photos/IMG_5028.png", "caption": "ネモフィラソフト売り切れ" },
+    { "x": 7000, "img": "assets/photos/IMG_7009.png", "caption": "寿司打2位の方" },
+    { "x": 7400, "img": "assets/photos/IMG_7578 2.png", "caption": "鬼痩せた俺" },
+    { "x": 7600, "img": "assets/photos/IMG_9739.png", "caption": "トイレに荷物置いてきた方" }
+  ],
+
+  "backgroundSegments": [
+    {
+      "key": "bg_sumidaku",
+      "path": "assets/bg/sumidaku.png",
+      "start": 0,
+      "end": 1560,
+      "factor": 0.55,
+      "y": 0
+    },
+    {
+      "key": "bg_odaiba",
+      "path": "assets/bg/odaiba.png",
+      "start": 1560,
+      "end": 3120,
+      "factor": 0.58,
+      "y": 0
+    },
+    {
+      "key": "bg_yamanashi",
+      "path": "assets/bg/yamanashi.png",
+      "start": 3120,
+      "end": 4680,
+      "factor": 0.60,
+      "y": 0
+    },
+    {
+      "key": "bg_tochigi",
+      "path": "assets/bg/tochigi.png",
+      "start": 4680,
+      "end": 6240,
+      "factor": 0.58,
+      "y": 0
+    },
+    {
+      "key": "bg_atami",
+      "path": "assets/bg/atami.png",
+      "start": 6240,
+      "end": 7800,
+      "factor": 0.58,
+      "y": 0
+    }
+  ],
+
+  "level": {
+    "length": 7800,
+    "groundY": 540,
+    "platforms": [
+      { "x": 700,  "y": 490, "w": 220 },
+      { "x": 1400, "y": 470, "w": 200 },
+      { "x": 2300, "y": 455, "w": 180 },
+      { "x": 3200, "y": 480, "w": 200 },
+      { "x": 4100, "y": 440, "w": 220 },
+      { "x": 5000, "y": 470, "w": 200 },
+      { "x": 5900, "y": 450, "w": 200 },
+      { "x": 6600, "y": 480, "w": 220 },
+      { "x": 7300, "y": 460, "w": 200 }
+    ]
+  }
+
+}

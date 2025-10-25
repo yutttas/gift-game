@@ -1,0 +1,11 @@
+html,body{
+  margin:0;
+  height:100%;
+  background:#0e0f13;
+  font-family:system-ui,"Hiragino Kaku Gothic ProN",Meiryo,sans-serif;
+}
+#game{
+  width:100vw;
+  height:100vh;
+  touch-action:none;
+}
