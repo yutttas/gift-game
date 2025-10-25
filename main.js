@@ -597,22 +597,28 @@ class Play extends Phaser.Scene{
     this.time.addEvent({ delay: 1500, loop: true, callback: maintainFlow });
     maintainFlow();
 
-    // ===== スマホ用タッチコントロール =====
+    // ===== iPhone用タッチコントロール =====
     this.touchLeft = false;
     this.touchRight = false;
     this.touchJump = false;
 
-    // 左側：左右移動ボタン
-    const leftButtonSize = 80;
-    const buttonY = GAME_H - 120;
-    const buttonAlpha = 0.3;
+    // iPhone最適化：ボタンサイズと配置
+    const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+    const buttonSize = isMobile ? 70 : 80; // iPhone用に少し大きく
+    const buttonY = GAME_H - 90; // 下部により近く配置
+    const buttonAlpha = 0.25; // より薄く（見やすさ向上）
+    const buttonStroke = 2;
 
-    // 左ボタン
-    const leftBtn = this.add.circle(60, buttonY, leftButtonSize/2, 0xffffff, buttonAlpha)
+    // 左ボタン（より左端に配置）
+    const leftBtn = this.add.circle(50, buttonY, buttonSize/2, 0xffffff, buttonAlpha)
       .setScrollFactor(0)
       .setDepth(1000)
       .setInteractive();
-    this.add.text(60, buttonY, '←', {fontSize: '40px', color: '#000000'})
+    this.add.circle(50, buttonY, buttonSize/2, 0xffffff, 0)
+      .setStrokeStyle(buttonStroke, 0xffffff, 0.4)
+      .setScrollFactor(0)
+      .setDepth(1000);
+    this.add.text(50, buttonY, '←', {fontSize: '36px', color: '#ffffff', fontStyle: 'bold'})
       .setOrigin(0.5)
       .setScrollFactor(0)
       .setDepth(1001);
@@ -622,11 +628,15 @@ class Play extends Phaser.Scene{
     leftBtn.on('pointerout', () => { this.touchLeft = false; });
 
     // 右ボタン
-    const rightBtn = this.add.circle(180, buttonY, leftButtonSize/2, 0xffffff, buttonAlpha)
+    const rightBtn = this.add.circle(160, buttonY, buttonSize/2, 0xffffff, buttonAlpha)
       .setScrollFactor(0)
       .setDepth(1000)
       .setInteractive();
-    this.add.text(180, buttonY, '→', {fontSize: '40px', color: '#000000'})
+    this.add.circle(160, buttonY, buttonSize/2, 0xffffff, 0)
+      .setStrokeStyle(buttonStroke, 0xffffff, 0.4)
+      .setScrollFactor(0)
+      .setDepth(1000);
+    this.add.text(160, buttonY, '→', {fontSize: '36px', color: '#ffffff', fontStyle: 'bold'})
       .setOrigin(0.5)
       .setScrollFactor(0)
       .setDepth(1001);
@@ -635,13 +645,17 @@ class Play extends Phaser.Scene{
     rightBtn.on('pointerup', () => { this.touchRight = false; });
     rightBtn.on('pointerout', () => { this.touchRight = false; });
 
-    // 右側：ジャンプボタン
-    const jumpButtonSize = 100;
-    const jumpBtn = this.add.circle(GAME_W - 80, buttonY, jumpButtonSize/2, 0xffffff, buttonAlpha)
+    // 右側：ジャンプボタン（より大きく、右端に配置）
+    const jumpButtonSize = isMobile ? 85 : 100;
+    const jumpBtn = this.add.circle(GAME_W - 60, buttonY, jumpButtonSize/2, 0xffffff, buttonAlpha)
       .setScrollFactor(0)
       .setDepth(1000)
       .setInteractive();
-    this.add.text(GAME_W - 80, buttonY, 'JUMP', {fontSize: '20px', color: '#000000', fontStyle: 'bold'})
+    this.add.circle(GAME_W - 60, buttonY, jumpButtonSize/2, 0xffffff, 0)
+      .setStrokeStyle(buttonStroke, 0xffffff, 0.4)
+      .setScrollFactor(0)
+      .setDepth(1000);
+    this.add.text(GAME_W - 60, buttonY, 'JUMP', {fontSize: '18px', color: '#ffffff', fontStyle: 'bold'})
       .setOrigin(0.5)
       .setScrollFactor(0)
       .setDepth(1001);
@@ -901,7 +915,7 @@ class GameOver extends Phaser.Scene{
 }
 
 new Phaser.Game({
-  type: Phaser.WEBGL, // WebGLを明示的に指定して高画質に
+  type: Phaser.WEBGL,
   parent: 'game',
   width: GAME_W,
   height: GAME_H,
@@ -913,13 +927,18 @@ new Phaser.Game({
   scale: {
     mode: Phaser.Scale.FIT,
     autoCenter: Phaser.Scale.CENTER_BOTH,
-    resolution: window.devicePixelRatio || 1 // デバイスの解像度に合わせる
+    resolution: Math.min(window.devicePixelRatio || 1, 2), // iPhone用に最適化（最大2倍）
+    fullscreenTarget: 'game'
   },
   render: {
     antialias: true,
     antialiasGL: true,
     mipmapFilter: 'LINEAR_MIPMAP_LINEAR',
-    roundPixels: false, // サブピクセルレンダリングを有効化
-    powerPreference: 'high-performance' // 高性能GPUを優先
+    roundPixels: false,
+    powerPreference: 'high-performance'
+  },
+  input: {
+    touch: true, // タッチ入力を有効化
+    activePointers: 3 // 同時タッチポイント数
   }
 });
